@@ -203,12 +203,37 @@ open_modal.forEach((btn) => {
   if (btn) {
     btn.addEventListener("click", () => {
       btn.nextElementSibling.style.display = "flex";
+      document.body.style.overflow = "hidden";
 
       const close = btn.nextElementSibling.querySelector(".close");
 
       close.addEventListener("click", () => {
         btn.nextElementSibling.style.display = "none";
+        document.body.style.overflow = "auto";
       });
     });
   }
+});
+
+const header = document.querySelectorAll(".manu_header h5");
+
+header[0]?.addEventListener("click", () => {
+  const clas = header[0].getAttribute("data-class");
+  const clas1 = header[1].getAttribute("data-class");
+
+  const div = document.querySelector(`.${clas}`);
+  const div1 = document.querySelector(`.${clas1}`);
+
+  div.style.display = "block";
+  div1.style.display = "none";
+});
+
+header[1]?.addEventListener("click", () => {
+  const clas = header[1].getAttribute("data-class");
+  const clas1 = header[0].getAttribute("data-class");
+  const div = document.querySelector(`.${clas}`);
+  const div1 = document.querySelector(`.${clas1}`);
+
+  div1.style.display = "none";
+  div.style.display = "block";
 });
