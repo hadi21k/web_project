@@ -99,11 +99,12 @@ items.forEach((item) => {
   side_menu.appendChild(li);
 });
 
-menu.addEventListener("click", () => {
+menu?.addEventListener("click", () => {
   side_menu.classList.toggle("show_menu");
   first.classList.toggle("top_menu");
   mid.classList.toggle("mid_menu");
   last.classList.toggle("last_menu");
+  console.log("dwlh");
 });
 
 document.addEventListener("keydown", (e) => {
@@ -116,7 +117,12 @@ document.addEventListener("keydown", (e) => {
 });
 
 document.addEventListener("click", (e) => {
-  if (e.target !== menu) {
+  if (
+    e.target !== menu &&
+    e.target !== first &&
+    e.target !== mid &&
+    e.target !== last
+  ) {
     side_menu.classList.remove("show_menu");
     first.classList.remove("top_menu");
     mid.classList.remove("mid_menu");
@@ -215,25 +221,17 @@ open_modal.forEach((btn) => {
   }
 });
 
-const header = document.querySelectorAll(".manu_header h5");
+const overview_btn = document.querySelector(".overview_btn");
+const predictive_btn = document.querySelector(".predictive_btn");
+const overview = document.querySelector(".overview");
+const predictive = document.querySelector(".predictive");
 
-header[0]?.addEventListener("click", () => {
-  const clas = header[0].getAttribute("data-class");
-  const clas1 = header[1].getAttribute("data-class");
-
-  const div = document.querySelector(`.${clas}`);
-  const div1 = document.querySelector(`.${clas1}`);
-
-  div.style.display = "block";
-  div1.style.display = "none";
+overview_btn.addEventListener("click", () => {
+  overview.style.display = "block";
+  predictive.style.display = "none";
 });
 
-header[1]?.addEventListener("click", () => {
-  const clas = header[1].getAttribute("data-class");
-  const clas1 = header[0].getAttribute("data-class");
-  const div = document.querySelector(`.${clas}`);
-  const div1 = document.querySelector(`.${clas1}`);
-
-  div1.style.display = "none";
-  div.style.display = "block";
+predictive_btn.addEventListener("click", () => {
+  predictive.style.display = "block";
+  overview.style.display = "none";
 });
