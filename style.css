@@ -177,7 +177,7 @@ input:-webkit-autofill {
 }
 
 .background {
-  background-image: url("images/home/home_bg.jpg");
+  background-image: url("images/home/home_bg.webp");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -831,6 +831,20 @@ footer {
 
 .predictive {
   display: none;
+  animation: fade_in_page 1.6s ease;
+}
+
+.overview {
+  animation: fade_in_page 1.6s ease;
+}
+
+@keyframes fade_in_page {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* Chatgpt */
